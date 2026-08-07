@@ -70,7 +70,7 @@ So the total sweetness is  **16**, and it is the maximum total sweetness.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-05T17:04:21.063Z  
+**Submitted:** 2026-08-07T16:21:04.799Z  
 
 ```java
 import java.util.*;
