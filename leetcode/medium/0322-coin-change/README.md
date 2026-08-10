@@ -49,28 +49,22 @@ Output: 0
 
 **Language:** Java  
 **Runtime:** 16 ms (beats 68.74%)  
-**Memory:** 46.5 MB (beats 51.53%)  
-**Submitted:** 2026-08-10T15:19:07.688Z  
+**Memory:** 46.2 MB (beats 84.40%)  
+**Submitted:** 2026-08-10T15:20:40.487Z  
 
 ```java
 class Solution {
     public int coinChange(int[] coins, int amount) {
          int[] dp = new int[amount + 1];
-
         Arrays.fill(dp, amount + 1);
-
         dp[0] = 0;
-
         for (int i = 1; i <= amount; i++) {
-
             for (int coin : coins) {
-
                 if (coin <= i) {
                     dp[i] = Math.min(dp[i], dp[i - coin] + 1);
                 }
             }
         }
-
         return dp[amount] > amount ? -1 : dp[amount];
     }
 }
