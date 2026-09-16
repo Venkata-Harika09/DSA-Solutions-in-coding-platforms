@@ -43,9 +43,9 @@ Given an array of strings `strs`, group the anagrams together. You can return th
 ## Solution
 
 **Language:** Java  
-**Runtime:** 7 ms (beats 71.76%)  
-**Memory:** 49.1 MB (beats 97.70%)  
-**Submitted:** 2026-09-16T06:28:26.576Z  
+**Runtime:** 0 ms  
+**Memory:** 43 MB  
+**Submitted:** 2026-09-16T06:29:07.605Z  
 
 ```java
 class Solution {
