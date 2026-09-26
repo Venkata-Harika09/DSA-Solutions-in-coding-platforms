@@ -53,7 +53,7 @@ The first test case is the example from the statement. In the second test case, 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-26T06:51:44.149Z  
+**Submitted:** 2026-09-26T06:51:42.213Z  
 
 ```java
 import java.util.*;
