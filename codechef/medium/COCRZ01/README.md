@@ -4,96 +4,90 @@
 
 ## Problem
 
-Chef has a list of intervals $intervalList$, where each interval is represented by a start and an end point.
-Chef wants to remove the minimum number of intervals so that no two remaining intervals overlap.
-Help Chef find the minimum count of intervals that must be removed to achieve this.
+Your best friend has a very interesting necklace with $n$ pearls. On each of the pearls of the necklace there is an integer. However, your friend wants to modify the necklace a bit and asks you for help. She wants to move the first pearl $k$ spots to the left (and do so with all other pearls).
 
-#### Note:
+For example: if the necklace was originally $1, 5, 3, 4, 2$ and $k = 2$, now it becomes $3, 4, 2, 1, 5$.
 
-An interval is represented as  **[start, end]**, where `start < end`.
+Help your best friend determine how the necklace will look after the modification.
 
-Two intervals are considered  **non-overlapping**  if they share  **any common point**. Intervals that touch at endpoints (e.g. `[1,2]` and `[2,3]`) are considered  **non-overlapping**.
-
-The task is to remove the  **minimum number of intervals**  so that no two remaining intervals overlap. This is equivalent to selecting the  **maximum number of non-overlapping intervals**, where an interval can be selected only if its `start` is  **greater**  than or  **equal**  to the `end` of the previously selected interval.
-
-## Function Declaration
-### Function Name
-
-$findMinimumRemovals$ — This function determines the minimum number of intervals to remove to eliminate all overlaps in a given list of intervals.
-
-### Parameters
-- $intervalList$: A reference to a vector containing intervals, where each interval is represented as a vector of two integers $[start, end]$.
-- The intervals represent ranges with integer start and end points.
-- Intervals may overlap or touch at endpoints.
-### Return Value
-- Returns an integer representing the minimum count of intervals that must be removed to ensure no intervals overlap.
 ### Input Format
-- The first line contains a single integer $T$ — the number of test cases.
-- Each test case consists of: The first line contains an integer $N$ — the number of intervals Chef has. The next $N$ lines each contain two integers $start_i$ and $end_i$ describing the intervals.
+- First line will contain $T$, the number of test cases. Then the test cases follow.
+- Each test case contains two lines of input, the first containing two integers $n, k$.
+- The second line of each test case contains $n$ integers $a_1, a_2,..., a_n$ representing the integers on the pearls starting from the first one.
 ### Output Format
-- For each test case, print a single line containing one integer — the minimum number of intervals Chef must remove so that no intervals overlap.
+
+For each testcase, output in a single line $n$ integers representing the necklace after modification.
+
 ### Constraints
-- $1 \leq \ T \leq 10$
-- $1 \leq \text{intervalList.size()} \leq 10^4$
-- Each interval has exactly two integers: $start$ and $end$
-- $-5 \times 10^4 \leq \text{start}_i \lt \text{end}_i \leq 5 \times 10^4$
+- $1 \leq T \leq 100$
+- $1 \leq n \leq 10^5$
+- The sum of $n$ over all test cases does not exceed $3 \cdot 10^5$
+- $0 \leq k \leq n$
+- $-10^9 \leq a_i \leq 10^9$
+### Subtasks
+- 30 points : The sum of $n$ over all test cases does not exceed $5000$
+- 70 points : original constraints
 ### Sample 1:
 Input
 Output
 
 ```
-3
-3
-[0 1]
-[3 4]
-[1 2]
-3
-[1 2]
-[1 3]
-[1 4]
-3
-[1 2]
-[1 4]
-[2 4]
-
-```
-
-```
-0
 2
-1
+5 3
+1 5 3 4 2
+6 5
+10 1 2 9 8 2
+```
+
+```
+4 2 1 5 3
+2 10 1 2 9 8
 ```
 
 ### Explanation:
-- First test case: no need to remove any intervals as all are non overlapping. [0 1] [1 2] [3 4]
-- Second test case: we can choose any one of the intervals only as all of them are overlapping thus we have to remove any 2 intervals.
-- Third test case: we have to remove [1 4] as it is overlapping the whole interval but by removing it we can have non-overlapping interval: [1 2][2 4].
+
+The first test case is the example from the statement. In the second test case, when we move every element 5 to the left we get the answer.
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-26T06:50:38.189Z  
+**Submitted:** 2026-09-26T06:52:14.818Z  
 
 ```java
-class Solution {
-    public int findMinimumRemovals(List<int[]> intervalList) {
-        // write your code here 
-        intervalList.sort((a,b)->Integer.compare(a[1],b[1]));
-        int sel=0;
-        int preEnd=Integer.MIN_VALUE;
-        for(int[] interval : intervalList){
-            int start=interval[0];
-            int end=interval[1];
-            if(start >= preEnd){
-                sel++;
-                preEnd=end;
-            }
-        }
-        return intervalList.size()-sel;
-    }
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc=new Scanner(System.in);
+		int T=sc.nextInt();
+		while(T-->0){
+		    int n=sc.nextInt();
+		    int k=sc.nextInt();
+		    int arr[]=new int[n];
+		    for(int i=0;i<n;i++){
+		       arr[i]=sc.nextInt();
+		    }
+		    k=k%n;
+		    StringBuilder sb=new StringBuilder();
+		    for(int i=k;i<n;i++){
+		        sb.append(arr[i]).append(" ");
+		    }
+		    for(int i=0;i<k;i++){
+		        sb.append(arr[i]).append(" ");
+		    }
+		    System.out.println(sb.toString().trim());
+		}
+		sc.close();
+	}
 }
+
 ```
 
 ---
