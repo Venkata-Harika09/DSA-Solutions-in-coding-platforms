@@ -12,19 +12,19 @@ class Codechef
 		while(T-->0){
 		    int N=sc.nextInt();
 		    String s=sc.next();
-		    int zeros=0;
-		    int ones=0;
+		    int z=0;
+		    int o=0;
 		    for(char ch:s.toCharArray()){
 		        if(ch=='0')
-		           zeros++;
+		           z++;
 		        else
-		           ones++;
+		           o++;
 		    }
 		    if(N%2==1){
 		        System.out.println("YES");
 		        
 		    }
-		    else if(zeros==ones || (zeros%2==0 && ones%2==0)){
+		    else if(z==o || (z%2==0 && o%2==0)){
 		        System.out.println("YES");
 		    }
 		    else{
