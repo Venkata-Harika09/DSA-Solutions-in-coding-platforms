@@ -60,7 +60,7 @@ NO
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-22T09:52:31.006Z  
+**Submitted:** 2026-10-22T09:52:43.550Z  
 
 ```java
 public static String solve(int N, int X, int[] A) {   
